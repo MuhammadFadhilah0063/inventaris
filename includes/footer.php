@@ -1,5 +1,5 @@
 <footer class="col-sm-12" style="margin-top: 2%;">
-    <span>Web Inventaris - WrapUpPro &copy; 2023 | Repost by <a href="https://instagram.com/wrapup.pro" title="StokCoding.com" target="_blank">IG: Wrapup.pro</a></span>
+    <!-- <span>Web Inventaris 2024</span> -->
 </footer>
 
 

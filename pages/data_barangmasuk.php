@@ -1,5 +1,5 @@
 <?php
-include ('C:/xampp/htdocs/inventaris/config/config.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 ?>
 <div class="row">
     <div class="col-lg-12">
@@ -22,16 +22,16 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
                 <div class="text-right" style="margin-top: -4%;">
                     <form action="barangmasuk.php?page=databarangmasuk" method="GET">
                         <label>Cari </label>
-                        <input type="text" name="cari"> 
+                        <input type="text" name="cari">
                         <input type="submit" value="Search">
                     </form>
-                    
-                    <?php               
 
-                    if(isset($_GET['cari'])){
+                    <?php
+
+                    if (isset($_GET['cari'])) {
                         $cari = $_GET['cari'];
-                        echo "<b>Hasil pencarian : ".$cari."</b>";
-                        }
+                        echo "<b>Hasil pencarian : " . $cari . "</b>";
+                    }
                     ?>
                 </div>
             </div>
@@ -39,29 +39,29 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
             <div class="panel-body">
                 <table width="100%" class="table table-striped table-bordered table-hover" cellpadding="0" cellspacing="0" id="dataTables-example">
                     <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Kode Masuk Barang</th>
-                                <th>Kode Barang</th>
-                                <th>Nama Barang</th>
-                                <th>Jumlah Masuk</th>
-                                <th>Tanggal Masuk</th>
-                                <th>Kode Supplier</th>
-                                <th>Aksi</th>
-                            </tr>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Masuk Barang</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah Masuk</th>
+                            <th>Tanggal Masuk</th>
+                            <th>Kode Supplier</th>
+                            <th>Aksi</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <?php
-                        
-                        if(isset($_GET['cari'])){
+                        <?php
+
+                        if (isset($_GET['cari'])) {
                             $cari = $_GET['cari'];
-                            $data = mysqli_query($conn,"select * from tbl_masukbarang where id_masukbarang like '%".$cari."%' || nama_barang like '%".$cari."%'") ;
-                            }else{
-                            $data = mysqli_query($conn,"select * from tbl_masukbarang");
-                            }
+                            $data = mysqli_query($conn, "select * from tbl_masukbarang where id_masukbarang like '%" . $cari . "%' || nama_barang like '%" . $cari . "%'");
+                        } else {
+                            $data = mysqli_query($conn, "select * from tbl_masukbarang");
+                        }
 
                         $no = 1;
-                        while($row = mysqli_fetch_array($data)){
+                        while ($row = mysqli_fetch_array($data)) {
 
                         ?>
                             <tr>
@@ -74,8 +74,8 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
                                 <td><?php echo $row['kode_supplier'] ?></td>
                                 <td><a href="barangmasuk.php?id=<?= $row['id_masukbarang'] ?>&page=updatebarangmasuk">Edit</a> - <a href="barangmasuk.php?hapus&id=<?= $row['id_masukbarang'] ?>" onclick="return confirm('Yakin mau dihapus?');">Hapus</a></td>
                             </tr>
-                    <?php }
-                         ?>
+                        <?php }
+                        ?>
                     </tbody>
                 </table>
                 <!-- /.table-responsive -->

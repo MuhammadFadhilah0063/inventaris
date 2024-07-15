@@ -5,9 +5,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 <div class="row">
     <div class="col-lg-12">
         <div class="page-header">
-            <h1>Data Barang</h1>
+            <h1>Data Peralatan & Mesin</h1>
             <div class="text-right" style="margin-top: -4%;">
-                <a href="pages/cetak_databarang.php" target="_blank" class="btn btn-default " styles=""><i class="fa fa-print "></i> Print </a>
+                <a href="pages/peralatan_mesin/cetak.php" target="_blank" class="btn btn-default " styles=""><i class="fa fa-print "></i> Print </a>
             </div>
         </div>
 
@@ -19,11 +19,12 @@ include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a href="index.php?page=barangbaru" class="btn btn-default " styles=""><i class="glyphicon glyphicon-plus "></i>
+                <a href="index.php?page=peralatanmesinbaru" class="btn btn-default " styles=""><i class="glyphicon glyphicon-plus "></i>
                     Tambah Data </a>
                 <div class="text-right" style="margin-top: -4%;">
-                    <form action="barang.php?page=databarang" method="GET">
+                    <form action="index.php" method="GET">
                         <label>Cari </label>
+                        <input type="hidden" name="page" value="dataperalatanmesin">
                         <input type="text" name="cari">
                         <input type="submit" value="Search">
                     </form>
@@ -44,25 +45,35 @@ include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 
                         <tr>
                             <th>No</th>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
+                            <th>Kode Peralatan & Mesin</th>
+                            <th>Nama Peralatan & Mesin</th>
+                            <th>Merek</th>
                             <th>Spesifikasi</th>
-                            <th>Lokasi Barang</th>
+                            <th>Lokasi Penyimpanan</th>
+                            <th>Jumlah</th>
                             <th>Kategori</th>
                             <th>Kondisi</th>
-                            <th>Jenis Barang</th>
-                            <th>Sumber Dana</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
 
+                        function getBaseUrl()
+                        {
+                            $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+                            $host = $_SERVER['HTTP_HOST'];
+
+                            return $protocol . $host;
+                        }
+
+                        $baseUrl = getBaseUrl();
+
                         if (isset($_GET['cari'])) {
                             $cari = $_GET['cari'];
-                            $data = mysqli_query($conn, "select * from tbl_barang where kode_barang like '%" . $cari . "%' || nama_barang like '%" . $cari . "%'");
+                            $data = mysqli_query($conn, "select * from tbl_peralatan_mesin where kode like '%" . $cari . "%' || nama like '%" . $cari . "%'");
                         } else {
-                            $data = mysqli_query($conn, "select * from tbl_barang");
+                            $data = mysqli_query($conn, "select * from tbl_peralatan_mesin");
                         }
 
                         $no = 1;
@@ -71,15 +82,15 @@ include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
                         ?>
                             <tr>
                                 <td><?php echo $no++ ?></td>
-                                <td><?php echo $row['kode_barang'] ?></td>
-                                <td><?php echo $row['nama_barang'] ?></td>
+                                <td><?php echo $row['kode'] ?></td>
+                                <td><?php echo $row['nama'] ?></td>
+                                <td><?php echo $row['merek'] ?></td>
                                 <td><?php echo $row['spesifikasi'] ?></td>
-                                <td><?php echo $row['lokasi_barang'] ?></td>
+                                <td><?php echo $row['lokasi'] ?></td>
+                                <td><?php echo $row['jumlah'] ?></td>
                                 <td><?php echo $row['kategori'] ?></td>
                                 <td><?php echo $row['kondisi'] ?></td>
-                                <td><?php echo $row['jenis_brg'] ?></td>
-                                <td><?php echo $row['sumber_dana'] ?></td>
-                                <td><a href="barang.php?id=<?= $row['kode_barang'] ?>&page=updatebarang">Edit</a> - <a href="?hapus&id=<?= $row['kode_barang'] ?>" onclick="return confirm('Yakin mau dihapus?');">Hapus</a>
+                                <td><a href="index.php?page=peralatanmesinedit&id=<?= $row['kode'] ?>">Edit</a> - <a href="<?= $baseUrl ?>/pages/peralatan_mesin/proses.php?aksi=hapus&kode=<?= $row['kode'] ?>" onclick="return confirm('Yakin mau dihapus?');">Hapus</a>
                                 </td>
                             </tr>
                         <?php }

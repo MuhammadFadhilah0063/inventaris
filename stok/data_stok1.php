@@ -1,5 +1,5 @@
 <?php
-include('C:/xampp/htdocs/inventaris/config/config.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 ?>
 <div class="row">
     <div class="col-lg-12">

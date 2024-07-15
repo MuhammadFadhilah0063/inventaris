@@ -1,9 +1,9 @@
 <?php
-include ('C:/xampp/htdocs/inventaris/config/config.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 ?>
 
 <div class="row">
-<div class="col-lg-12">
+    <div class="col-lg-12">
         <div class="page-header">
             <h1>Data Peminjaman</h1>
             <div class="text-right" style="margin-top: -4%;">
@@ -23,15 +23,15 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
                 <div class="text-right" style="margin-top: -4%;">
                     <form action="peminjaman.php?page=datapeminjaman" method="GET">
                         <label>Cari </label>
-                        <input type="text" name="cari"> 
+                        <input type="text" name="cari">
                         <input type="submit" value="Search">
                     </form>
-                    
+
                     <?php
-                    if(isset($_GET['cari'])){
+                    if (isset($_GET['cari'])) {
                         $cari = $_GET['cari'];
-                        echo "<b>Hasil pencarian : ".$cari."</b>";
-                        }
+                        echo "<b>Hasil pencarian : " . $cari . "</b>";
+                    }
                     ?>
                 </div>
             </div>
@@ -39,31 +39,31 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
             <div class="panel-body">
                 <table width="100%" class="table table-striped table-bordered table-hover" cellpadding="0" cellspacing="0" id="dataTables-example">
                     <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>No Pinjam</th>
-                                <th>Tanggal Pinjam</th>
-                                <th>Kode Barang</th>
-                                <th>Nama Barang</th>
-                                <th>Jumlah Pinjam</th>
-                                <th>Nama Peminjam</th>
-                                <th>Tanggal Kembali</th>
-                                <th>Keterangan</th>
-                                <th>Pilihan</th>
-                            </tr>
+                        <tr>
+                            <th>No</th>
+                            <th>No Pinjam</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah Pinjam</th>
+                            <th>Nama Peminjam</th>
+                            <th>Tanggal Kembali</th>
+                            <th>Keterangan</th>
+                            <th>Pilihan</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php
-                            
-                        if(isset($_GET['cari'])){
+
+                        if (isset($_GET['cari'])) {
                             $cari = $_GET['cari'];
-                            $data = mysqli_query($conn,"select * from tbl_pinjam where kode_barang like '%".$cari."%' || nama_barang like '%".$cari."%' || nomor_pinjam like '%".$cari."%'") ;
-                            }else{
-                            $data = mysqli_query($conn,"select * from tbl_pinjam");
-                            }
+                            $data = mysqli_query($conn, "select * from tbl_pinjam where kode_barang like '%" . $cari . "%' || nama_barang like '%" . $cari . "%' || nomor_pinjam like '%" . $cari . "%'");
+                        } else {
+                            $data = mysqli_query($conn, "select * from tbl_pinjam");
+                        }
 
                         $no = 1;
-                        while($row = mysqli_fetch_array($data)){
+                        while ($row = mysqli_fetch_array($data)) {
 
                         ?>
                             <tr>
@@ -98,8 +98,8 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
                                     <?php } ?>
                                 </td>
                             </tr>
-                    <?php }
-                         ?>
+                        <?php }
+                        ?>
                     </tbody>
                 </table>
                 <!-- /.table-responsive -->

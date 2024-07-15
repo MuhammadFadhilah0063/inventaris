@@ -1,5 +1,5 @@
 <?php
-include ('C:/xampp/htdocs/inventaris/config/config.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 ?>
 
 <div class="row">
@@ -23,15 +23,15 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
                 <div class="text-right" style="margin-top: -4%;">
                     <form action="supplier.php?page=supplier" method="GET">
                         <label>Cari </label>
-                        <input type="text" name="cari"> 
+                        <input type="text" name="cari">
                         <input type="submit" value="Search">
                     </form>
-                    
+
                     <?php
-                    if(isset($_GET['cari'])){
+                    if (isset($_GET['cari'])) {
                         $cari = $_GET['cari'];
-                        echo "<b>Hasil pencarian : ".$cari."</b>";
-                        }
+                        echo "<b>Hasil pencarian : " . $cari . "</b>";
+                    }
                     ?>
                 </div>
             </div>
@@ -52,33 +52,33 @@ include ('C:/xampp/htdocs/inventaris/config/config.php');
                     </thead>
                     <tbody>
                         <?php
-                        
-                        if(isset($_GET['cari'])){
+
+                        if (isset($_GET['cari'])) {
                             $cari = $_GET['cari'];
-                            $data = mysqli_query($conn,"select * from tbl_supplier where kode_supplier like '%".$cari."%' || nama_supplier like '%".$cari."%'") ;
-                            }else{
-                            $data = mysqli_query($conn,"select * from tbl_supplier");
-                            }
+                            $data = mysqli_query($conn, "select * from tbl_supplier where kode_supplier like '%" . $cari . "%' || nama_supplier like '%" . $cari . "%'");
+                        } else {
+                            $data = mysqli_query($conn, "select * from tbl_supplier");
+                        }
 
                         $no = 1;
-                        while($row = mysqli_fetch_array($data)){
+                        while ($row = mysqli_fetch_array($data)) {
 
                         ?>
 
-                        <tr>
-                                    <td><?php echo $no++; ?></td>
-                                    <td><?php echo $row['kode_supplier']; ?></td>
-                                    <td><?php echo $row['nama_supplier']; ?></td>
-                                    <td><?php echo $row['alamat_supplier']; ?></td>
-                                    <td><?php echo $row['telp_supplier']; ?></td>
-                                    <td><?php echo $row['kota_supplier']; ?></td>
-                                    <td><a href="supplier.php?id=<?= $row['kode_supplier'] ?>&page=updatesupplier">Edit</a> - <a href="supplier.php?hapus&id=<?= $row['kode_supplier'] ?>" onclick="return confirm('Yakin mau dihapus?');">Hapus</a></td>
-                                </tr>
-                                <?php }
-                         ?>
+                            <tr>
+                                <td><?php echo $no++; ?></td>
+                                <td><?php echo $row['kode_supplier']; ?></td>
+                                <td><?php echo $row['nama_supplier']; ?></td>
+                                <td><?php echo $row['alamat_supplier']; ?></td>
+                                <td><?php echo $row['telp_supplier']; ?></td>
+                                <td><?php echo $row['kota_supplier']; ?></td>
+                                <td><a href="supplier.php?id=<?= $row['kode_supplier'] ?>&page=updatesupplier">Edit</a> - <a href="supplier.php?hapus&id=<?= $row['kode_supplier'] ?>" onclick="return confirm('Yakin mau dihapus?');">Hapus</a></td>
+                            </tr>
+                        <?php }
+                        ?>
 
 
-                        
+
                     </tbody>
                 </table>
                 <!-- /.table-responsive -->

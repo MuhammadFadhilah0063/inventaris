@@ -12,10 +12,20 @@ $st = new Class_Stok();
 include_once("config/config.php");
 // Mengambil kode barang baru
 include_once("fungsi/nomatbrg.php");
+// Mengambil kode peralatan baru
+include_once("fungsi/nomatperalatan.php");
+// Mengambil kode kendaraan baru
+include_once("fungsi/nomatkendaraan.php");
 // Mengambil kode barang masuk
 include_once("fungsi/nomatbrgmasuk.php");
 // Mengambil nomor pinjam
 include_once("fungsi/nomatpinjam.php");
+// Mengambil nomor mutasi
+include_once("fungsi/nomatmutasi.php");
+// Mengambil nomor kerusakan
+include_once("fungsi/nomatkerusakan.php");
+// Mengambil nomor jadwal
+include_once("fungsi/nomatjadwal.php");
 
 
 if (isset($_GET['hapus'])) {
@@ -68,6 +78,51 @@ $db = new Class_Barang();
             } else if (isset($_GET['page']) && $_GET['page'] == "barangbaru") {
 
                 include_once("pages/input_barang.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "dataperalatanmesin") {
+
+                include_once("pages/peralatan_mesin/data_peralatan_mesin.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "peralatanmesinbaru") {
+
+                include_once("pages/peralatan_mesin/input_peralatan_mesin.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "peralatanmesinedit") {
+
+                include_once("pages/peralatan_mesin/edit_peralatan_mesin.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "datakendaraan") {
+
+                include_once("pages/kendaraan/data_kendaraan.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "kendaraanbaru") {
+
+                include_once("pages/kendaraan/input_kendaraan.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "kendaraanedit") {
+
+                include_once("pages/kendaraan/edit_kendaraan.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "datamutasi") {
+
+                include_once("pages/mutasi/data_mutasi.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "mutasibaru") {
+
+                include_once("pages/mutasi/input_mutasi.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "mutasiedit") {
+
+                include_once("pages/mutasi/edit_mutasi.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "datakerusakan") {
+
+                include_once("pages/kerusakan/data_kerusakan.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "kerusakanbaru") {
+
+                include_once("pages/kerusakan/input_kerusakan.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "kerusakanedit") {
+
+                include_once("pages/kerusakan/edit_kerusakan.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "datajadwal") {
+
+                include_once("pages/jadwal/data_jadwal.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "jadwalbaru") {
+
+                include_once("pages/jadwal/input_jadwal.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "jadwaledit") {
+
+                include_once("pages/jadwal/edit_jadwal.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "update") {
 
                 include_once("pages/edit_barang.php");

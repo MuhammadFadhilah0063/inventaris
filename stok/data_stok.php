@@ -3,7 +3,8 @@
         <div class="page-header">
             <h1>Data Stok</h1>
             <div class="text-right" style="margin-top: -4%;">
-                <a href="stok/cetak_stok.php" target="_blank" class="btn btn-default " styles=""><i class="fa fa-print "></i> Print </a>
+                <a href="stok/cetak_stok.php" target="_blank" class="btn btn-default " styles=""><i class="fa fa-print "></i>
+                    Print </a>
             </div>
         </div>
 
@@ -43,7 +44,6 @@
                             <th>Nama Barang</th>
                             <th>Jumlah Barang Masuk</th>
                             <th>Jumlah Barang Keluar</th>
-                            <th>Total Barang</th>
                             <th>Total Barang Saat Ini Tersedia</th>
                         </tr>
                     </thead>
@@ -52,9 +52,9 @@
 
                         if (isset($_GET['cari'])) {
                             $cari = $_GET['cari'];
-                            $data = mysqli_query($conn, "SELECT * from tbl_barang as a inner join tbl_stok as b on a.kode_barang=b.kode_barang where a.kode_barang like '%".$cari."%' ");
+                            $data = mysqli_query($conn, "SELECT * from tbl_stok where kode_barang like '%" . $cari . "%' ");
                         } else {
-                            $data = mysqli_query($conn, "SELECT * from tbl_barang as a inner join tbl_stok as b on a.kode_barang=b.kode_barang");
+                            $data = mysqli_query($conn, "SELECT * from tbl_stok");
                         }
 
                         $no = 1;
@@ -68,7 +68,6 @@
                                 <td><?php echo $row['jml_barangmasuk'] ?></td>
                                 <td><?php echo $row['jml_barangkeluar'] ?></td>
                                 <td><?php echo $row['total_barang'] ?></td>
-                                <td><?php echo $row['jumlah_brg'] ?></td>
                             </tr>
                         <?php }
                         ?>
