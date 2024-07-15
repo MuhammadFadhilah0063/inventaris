@@ -1,7 +1,7 @@
 <?php
-include_once("../config/Class_BarangMasuk.php");
+include("../config/Class_BarangMasuk.php");
 $db = new Class_BarangMasuk();
-include_once("../config/config.php");
+include("../config/config.php");
 
 $aksi = $_GET["aksi"];
 

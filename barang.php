@@ -1,10 +1,10 @@
-<?php 
+<?php
 
-include_once("config/Class_Barang.php");
+include("config/Class_Barang.php");
 $cs = new Class_Barang();
 
-include_once("config/config.php");
-include_once("fungsi/nomatbrg.php");
+include("config/config.php");
+include("fungsi/nomatbrg.php");
 
 
 if (isset($_GET['hapus'])) {
@@ -12,15 +12,16 @@ if (isset($_GET['hapus'])) {
     $cs->hapus($_GET['id']);
     echo "<script>alert('data barang berhasil dihapus'); window.location.href='barang.php';</script>";
 }
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-include_once("config/Class_Barang.php");
+<?php
+include("config/Class_Barang.php");
 $db = new Class_Barang();
- 
 
- ?>
+
+?>
+
 <head>
 
     <meta charset="utf-8">
@@ -31,8 +32,8 @@ $db = new Class_Barang();
 
     <title>AISP - SMKFU</title>
 
-    <?php 
-    include_once("includes/header.php"); ?>
+    <?php
+    include("includes/header.php"); ?>
 
 </head>
 
@@ -41,42 +42,39 @@ $db = new Class_Barang();
     <div id="wrapper">
 
         <!-- Navigation -->
-            <?php include_once("includes/navbar.php"); ?>
-            <!-- /.navbar-top-links -->
-            <?php include_once("includes/sidebar.php"); ?>
-            
-            <!-- /.navbar-static-side -->
+        <?php include("includes/navbar.php"); ?>
+        <!-- /.navbar-top-links -->
+        <?php include("includes/sidebar.php"); ?>
+
+        <!-- /.navbar-static-side -->
         <div id="page-wrapper">
 
-<?php 
+            <?php
 
             if (isset($_GET['page']) && $_GET['page'] == "barangbaru") {
 
-                include_once("pages/input_barang.php");
-            }
-            else if (isset($_GET['page']) && $_GET['page'] == "updatebarang") {
+                include("pages/input_barang.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "updatebarang") {
 
-                include_once("pages/edit_barang.php");   
-            }
-            else if (isset($_GET['page']) && $_GET['page'] == "barangmasuk") {
+                include("pages/edit_barang.php");
+            } else if (isset($_GET['page']) && $_GET['page'] == "barangmasuk") {
 
-                include_once("pages/data_barangmasuk.php");
-            }
-            else{
-                include_once("pages/data_barang.php");
+                include("pages/data_barangmasuk.php");
+            } else {
+                include("pages/data_barang.php");
             }
 
- ?>
-            
+            ?>
+
         </div>
         <!-- /#pag-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 
-   <?php include_once("includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>
 
-<!-- <script>
+    <!-- <script>
 $(document).ready(function() {
 $('#dataTables-example').DataTable({
 responsive: true

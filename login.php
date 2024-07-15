@@ -1,5 +1,5 @@
 <?php
-include_once("config/Class_User.php");
+include("config/Class_User.php");
 $db = new Class_User();
 
 
@@ -32,7 +32,7 @@ if (isset($_SESSION["username"])) {
 
     <title>Login - Aplikasi Inventaris</title>
 
-    <?php include_once("includes/header.php"); ?>
+    <?php include("includes/header.php"); ?>
 
     <?php
     ?>
@@ -85,7 +85,7 @@ if (isset($_SESSION["username"])) {
         </div>
     </div>
 
-    <?php include_once("includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>
 
 </body>
 <style>

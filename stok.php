@@ -1,21 +1,22 @@
-<?php 
+<?php
 
-include_once("config/Class_Stok.php");
+include("config/Class_Stok.php");
 $cs = new Class_Stok();
 
-include_once("config/config.php");
+include("config/config.php");
 
 
 
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-include_once("config/Class_Stok.php");
+<?php
+include("config/Class_Stok.php");
 $db = new Class_Stok();
- 
 
- ?>
+
+?>
+
 <head>
 
     <meta charset="utf-8">
@@ -26,8 +27,8 @@ $db = new Class_Stok();
 
     <title>AISP - SMKFU</title>
 
-    <?php 
-    include_once("includes/header.php"); ?>
+    <?php
+    include("includes/header.php"); ?>
 
 </head>
 
@@ -36,33 +37,32 @@ $db = new Class_Stok();
     <div id="wrapper">
 
         <!-- Navigation -->
-            <?php include_once("includes/navbar.php"); ?>
-            <!-- /.navbar-top-links -->
-            <?php include_once("includes/sidebar.php"); ?>
-            
-            <!-- /.navbar-static-side -->
+        <?php include("includes/navbar.php"); ?>
+        <!-- /.navbar-top-links -->
+        <?php include("includes/sidebar.php"); ?>
+
+        <!-- /.navbar-static-side -->
         <div id="page-wrapper">
 
-<?php 
+            <?php
 
             if (isset($_GET['page']) && $_GET['page'] == "cetakstok") {
-                include_once("stok/cetak_stokk.php");   
-            }
-            else{
-                include_once("stok/data_stok.php");
+                include("stok/cetak_stokk.php");
+            } else {
+                include("stok/data_stok.php");
             }
 
- ?>
-            
+            ?>
+
         </div>
         <!-- /#pag-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 
-   <?php include_once("includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>
 
-<!-- <script>
+    <!-- <script>
 $(document).ready(function() {
 $('#dataTables-example').DataTable({
 responsive: true

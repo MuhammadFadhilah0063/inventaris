@@ -1,7 +1,7 @@
-<?php 
-include_once("../config/Class_Supplier.php");
+<?php
+include("../config/Class_Supplier.php");
 $db = new Class_Supplier();
-include_once("../config/config.php");
+include("../config/config.php");
 
 $aksi = $_GET["aksi"];
 
@@ -33,5 +33,4 @@ if ($aksi == "update") {
     $db->update($nama_supplier,$alamat_supplier,$telp_supplier,$kota_supplier,$kode_supplier);
 
     echo "<script>alert('Data Supplier berhasil diubah'); window.location.href='../supplier.php';</script>";
-
 }
