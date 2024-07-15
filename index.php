@@ -1,31 +1,31 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/config/Class_Barang.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/config/Class_Barang.php");
 $db = new Class_Barang();
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/config/Class_User.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/config/Class_User.php");
 $cu = new Class_User();
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/config/Class_Stok.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/config/Class_Stok.php");
 $st = new Class_Stok();
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/config/config.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/config/config.php");
 // Mengambil kode barang baru
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatbrg.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatbrg.php");
 // Mengambil kode peralatan baru
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatperalatan.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatperalatan.php");
 // Mengambil kode kendaraan baru
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatkendaraan.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatkendaraan.php");
 // Mengambil kode barang masuk
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatbrgmasuk.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatbrgmasuk.php");
 // Mengambil nomor pinjam
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatpinjam.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatpinjam.php");
 // Mengambil nomor mutasi
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatmutasi.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatmutasi.php");
 // Mengambil nomor kerusakan
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatkerusakan.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatkerusakan.php");
 // Mengambil nomor jadwal
-include_once($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatjadwal.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/fungsi/nomatjadwal.php");
 
 
 if (isset($_GET['hapus'])) {
@@ -37,7 +37,7 @@ if (isset($_GET['hapus'])) {
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . "/config/Class_Barang.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/config/Class_Barang.php");
 $db = new Class_Barang();
 
 
@@ -54,7 +54,7 @@ $db = new Class_Barang();
     <title>AISP - SMKFU</title>
 
     <?php
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"); ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"); ?>
 
 </head>
 
@@ -63,9 +63,9 @@ $db = new Class_Barang();
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/navbar.php"); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . "/includes/navbar.php"); ?>
         <!-- /.navbar-top-links -->
-        <?php include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/sidebar.php"); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . "/includes/sidebar.php"); ?>
 
         <!-- /.navbar-static-side -->
         <div id="page-wrapper">
@@ -74,81 +74,81 @@ $db = new Class_Barang();
 
             if (isset($_GET['page']) && $_GET['page'] == "databarang") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/data_barang.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/data_barang.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "barangbaru") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/input_barang.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/input_barang.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "dataperalatanmesin") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/peralatan_mesin/data_peralatan_mesin.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/peralatan_mesin/data_peralatan_mesin.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "peralatanmesinbaru") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/peralatan_mesin/input_peralatan_mesin.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/peralatan_mesin/input_peralatan_mesin.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "peralatanmesinedit") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/peralatan_mesin/edit_peralatan_mesin.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/peralatan_mesin/edit_peralatan_mesin.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "datakendaraan") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/kendaraan/data_kendaraan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/kendaraan/data_kendaraan.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "kendaraanbaru") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/kendaraan/input_kendaraan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/kendaraan/input_kendaraan.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "kendaraanedit") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/kendaraan/edit_kendaraan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/kendaraan/edit_kendaraan.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "datamutasi") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/mutasi/data_mutasi.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/mutasi/data_mutasi.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "mutasibaru") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/mutasi/input_mutasi.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/mutasi/input_mutasi.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "mutasiedit") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/mutasi/edit_mutasi.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/mutasi/edit_mutasi.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "datakerusakan") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/kerusakan/data_kerusakan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/kerusakan/data_kerusakan.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "kerusakanbaru") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/kerusakan/input_kerusakan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/kerusakan/input_kerusakan.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "kerusakanedit") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/kerusakan/edit_kerusakan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/kerusakan/edit_kerusakan.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "datajadwal") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/jadwal/data_jadwal.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/jadwal/data_jadwal.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "jadwalbaru") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/jadwal/input_jadwal.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/jadwal/input_jadwal.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "jadwaledit") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/jadwal/edit_jadwal.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/jadwal/edit_jadwal.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "update") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/edit_barang.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/edit_barang.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "barangmasuk") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/data_barangmasuk.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/data_barangmasuk.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "barangkeluar") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/data_barangkeluar.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/data_barangkeluar.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "inputbarangmasuk") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/input_barangmasuk.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/input_barangmasuk.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "peminjaman") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/data_peminjaman.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/data_peminjaman.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "formpeminjaman") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/form_peminjaman.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/form_peminjaman.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "datastok") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/stok/data_stok.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/stok/data_stok.php");
             } else if (isset($_GET['page']) && $_GET['page'] == "pengaturan") {
 
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/pengaturan.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/pengaturan.php");
             } else {
-                include_once($_SERVER['DOCUMENT_ROOT'] . "/pages/dashboard.php");
+                include($_SERVER['DOCUMENT_ROOT'] . "/pages/dashboard.php");
             }
 
             ?>
@@ -159,7 +159,7 @@ $db = new Class_Barang();
     </div>
     <!-- /#wrapper -->
 
-    <?php include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"); ?>
 
     <!-- <script>
 $(document).ready(function() {
